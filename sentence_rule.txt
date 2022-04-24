@@ -1,0 +1,9 @@
+在第三方站点中，信息主要以两种形式存在：
+    （1）类似于键值对的形式，如：Product: WordPress、Version affected: 3.3.1 and prior
+    （2）存在于句子中，如：PHP Code Execution and Persistent Cross Site Scripting Vulnerabilities via 'setup-config.php' page.
+
+那么我们肯定要分情况进行处理，
+    针对第一种情况，需要先确定可以抽取的属性有哪些？然后设置规则进行抽取；
+    针对第二种情况，需要确定几个句子间是否存在上下文联系，以及去除句子中存在的干扰信息。
+
+由于第三方站点的文本内容很复杂多变，我们需要做的第一件事就是将其构造成句子一个一个的句子，但是存在很多不规则的表述方式，与此同时也会有一些规则化的句子，
