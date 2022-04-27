@@ -1,7 +1,6 @@
 #encoding:utf-8
 '''
-    本py文件的作用是找出NVD中共同包含5个第三方站点的CVE编号
-
+    本py文件的作用是找出NVD中共同包含5个或4个第三方站点的CVE编号
 '''
 
 import pandas as pd

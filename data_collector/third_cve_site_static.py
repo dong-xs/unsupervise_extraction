@@ -12,6 +12,10 @@
             http://security.gentoo.org                  #10048
             http://securityreason.com  <待定>           #6401,该站点也是极其不规则，也包括代码等内容
 
+            APU提供的站点虽然从NVD得到的数据较少，但是MSF/modules下的每个站点都可以与CVE编号进行链接，
+            目标站点为：https://github.com/rapid7/metasploit-framework/tree/master/modules/exploits
+            这个站点可以重点考虑为数据源。
+
             还需要继续对各个站点进行调研，经过继续深入调研发现，满足条件的站点太少，主要包括两个方面：
                 （1）我需要找那种公开披露漏洞的第三方站点，而不是针对某个产品或平台的披露站点
                 （2）我需要那种内容全是代码或文本描述的页面，而不是两种情况经常交织且多变的情况。
@@ -47,10 +51,10 @@ for item in range(len(sorted_value_head)):
     rebuild_sorted_value.append((sorted_value_head[item],sorted_value_tail[item]))
 
 print(len(rebuild_sorted_value))
-for item in rebuild_sorted_value[:50]:     #排行前20的第三方站点
+for item in rebuild_sorted_value[:100]:     #排行前20的第三方站点
     print(item)
 
 with open('../data/third_part_cve_site_top50.txt', 'w') as f:
-    for item in rebuild_sorted_value[:50]:
+    for item in rebuild_sorted_value[:100]:
         f.write(str(item)[1:-1]+'\n')
 f.close()

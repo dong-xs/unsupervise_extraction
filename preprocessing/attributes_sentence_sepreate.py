@@ -33,36 +33,42 @@
 '''
 import pandas as pd
 
-content = pd.read_csv('../data/DongPaper_cve_hyperlink_info_5sites.csv', encoding='ANSI')
+# content = pd.read_csv('../data/DongPaper_cve_hyperlink_info_5sites.csv', encoding='ANSI')
 # exploit = content['exploit_db_info'].values.tolist()
-IBM = content['IBM_info'].values.tolist()
-openwall = content['openwall_info'].values.tolist()
-oval = content['oval_info'].values.tolist()
-gentoo = content['gentoo_info'].values.tolist()
-cveid=content['cveid'].tolist()
+# IBM = content['IBM_info'].values.tolist()
+# openwall = content['openwall_info'].values.tolist()
+# oval = content['oval_info'].values.tolist()
+# gentoo = content['gentoo_info'].values.tolist()
+# cveid=content['_id'].tolist()
 
 # 存放来自两个站点中每个文本的内容，存放形式为列表
 # new_exploit = [list(eval(i)[0].values())[0] for i in exploit if len(eval(i)) != 0]
-for i in range(len(IBM)):
-    if len(eval(IBM[i]))!=0:
-        print(cveid[i])
-        print(list(eval(IBM[i])[0].values())[0])
-    if i==10:
-        assert 0
+# new_IBM= [list(eval(i)[0].values())[0] for i in IBM if len(eval(i)) != 0]
+# new_openwall = [list(eval(i)[0].values())[0] for i in openwall if len(eval(i)) != 0]
+# new_oval = [list(eval(i)[0].values())[0] for i in oval if len(eval(i)) != 0]
+# new_gentoo = [list(eval(i)[0].values())[0] for i in gentoo if len(eval(i)) != 0]
 
-assert 0
-new_IBM= [list(eval(i)[0].values())[0] for i in IBM if len(eval(i)) != 0]
-new_openwall = [list(eval(i)[0].values())[0] for i in openwall if len(eval(i)) != 0]
-new_oval = [list(eval(i)[0].values())[0] for i in oval if len(eval(i)) != 0]
-new_gentoo = [list(eval(i)[0].values())[0] for i in gentoo if len(eval(i)) != 0]
+IBM_test='[{"https://exchange.xforce.ibmcloud.com/vulnerabilities/46376":{"title":"VLC Media Player RealText demuxer buffer overflow","description":"VLC Media Player is vulnerable to a stack-based buffer overflow, caused by improper bounds checking by the RealText demuxer. By persuading a victim to open a specially-crafted RealText subtitle file, a remote attacker could overflow a buffer and execute arbitrary code on the system with elevated privileges or cause the application to crash.","result":"Gain Access"}}]'
+oval_test='[{"https://oval.cisecurity.org/repository/search/definition/oval%3Aorg.mitre.oval%3Adef%3A14329":"Stack-based buffer overflow in VideoLAN VLC media player 0.9.x before 0.9.6 might allow user-assisted attackers to execute arbitrary code via an an invalid RealText (rt) subtitle file related to the ParseRealText function in modules/demux/subtitle.c.  NOTE: this issue was SPLIT from CVE-2008-5032 on 20081110."}]'
+gentoo_test='[{"http://security.gentoo.org/glsa/glsa-200812-24.xml":{"description":"Tobias Klein reported the following vulnerabilities:","version":"<0.9.8a","impact":"A remote attacker could entice a user to open a specially crafted CUE     image file, RealMedia file or RealText subtitle file, possibly     resulting in the execution of arbitrary code with the privileges of the     user running the application."}}]'
+openwall_test='[{"http://www.openwall.com/lists/oss-security/2008/11/05/4":"Date: Wed, 5 Nov 2008 23:17:11 +0200\nFrom: R茅mi Denis-Courmont <rem@...eolan.org>\nTo: oss-security@...ts.openwall.com\nSubject: VideoLAN security advisory 0810\n\nSummary           : Buffer overflows in VLC RealText and CUE demuxers\nDate              : November 2008\nAffected versions : VLC media player 0.9.5 down to 0.5.0\nID                : VideoLAN-SA-0810\nCVE reference     : None yet.\n\n\n- Details -\n\nWhen parsing the header of an invalid CUE image file or an invalid RealText \nsubtitle file, stack-based buffer overflows might occur. \n\n\n- Impact -\n\nIf successful, a malicious third party could trigger execution of arbitrary \ncode within the context of the VLC media player. \n\n\n- Threat mitigation -\n\nExploitation of this issue requires the user to explicitly open a specially \ncrafted file. \n\n\n- Workarounds -\n\nThe user should refrain from opening files from untrusted third parties or \naccessing untrusted remote sites (or disable the VLC browser plugins), until \nthe patch is applied. \nAlternatively, the VCD and Subtitles plugins (libvcd_plugin.* and \nlibsubtitle_plugin.*) can be removed manually from the VLC plugin \ninstallation directory. However, this will prevent use of subtitle files and \nVideo CD altogether.\n\n\n- Solution -\n\nVLC media player 0.9.6 addresses this issue. Patches for older versions are \navailable from the official VLC source code repository 0.9-bugfix branch. \n\n\n- Credits -\n\nThese vulnerabilities were reported by Tobias Klein. \n\n\n- References -\n\nThe VideoLAN project\n\thttp://www.videolan.org/ \nTobias Klein\n\thttp://www.trapkit.de/advisories/ \n\n\n- History -\n\n3 November 2008\n\tVendor notification.\n4 November 2008\n\tInternal patches for VLC development version and 0.9-bugfix tree.\n5 November 2008\n\tInitial security advisory.\n\tVLC media player 0.9.6 released.\n\n-- \nR茅mi Denis-Courmont,\non behalf of the VideoLAN project"},{"http://www.openwall.com/lists/oss-security/2008/11/05/5":"Date: Wed, 5 Nov 2008 23:30:34 +0100\nFrom: Nico Golde <oss-security+ml@...lde.de>\nTo: oss-security@...ts.openwall.com\nSubject: CVE id request: vlc\n\nHi,\ncan I get a CVE id for:\nhttp://www.videolan.org/security/sa0810.html\n\nCheers\nNico\n\n-- \nNico Golde - http://www.ngolde.de - nion@...ber.ccc.de - GPG: 0x73647CFF\nFor security reasons, all text in this mail is double-rot13 encrypted.\n\nContent of type \"application/pgp-signature\" skipped"},{"http://www.openwall.com/lists/oss-security/2008/11/10/13":"Date: Mon, 10 Nov 2008 21:10:47 +0100\nFrom: Nico Golde <oss-security+ml@...lde.de>\nTo: oss-security@...ts.openwall.com, coley@...re.org, rem@...eolan.org\nSubject: Re: CVE id request: vlc\n\nHi,\n* Steven M. Christey <coley@...us.mitre.org> [2008-11-10 19:09]:\n> ======================================================\n> Name: CVE-2008-5032\n> Status: Candidate\n> URL: http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2008-5032\n> Reference: MLIST:[oss-security] 20081105 CVE id request: vlc\n> Reference: URL:http://www.openwall.com/lists/oss-security/2008/11/05/5\n> Reference: MLIST:[oss-security] 20081105 VideoLAN security advisory 0810\n> Reference: URL:http://www.openwall.com/lists/oss-security/2008/11/05/4\n> Reference: MISC:http://www.trapkit.de/advisories/TKADV2008-011.txt\n> Reference: MISC:http://www.trapkit.de/advisories/TKADV2008-012.txt\n> Reference: CONFIRM:http://git.videolan.org/?p=vlc.git;a=commitdiff;h=5f63f1562d43f32331006c2c1a61742de031b84d\n> Reference: CONFIRM:http://git.videolan.org/?p=vlc.git;a=commitdiff;h=e3cef651125701a2e33a8d75b815b3e39681a447\n> Reference: CONFIRM:http://www.videolan.org/security/sa0810.html\n> \n> Multiple stack-based buffer overflows in VideoLAN VLC media player\n> 0.5.0 through 0.9.5 allow user-assisted attackers to execute arbitrary\n> code via (1) the header of an invalid CUE image file, related to\n> modules/access/vcd/cdrom.c; or (2) an invalid RealText (rt) subtitle\n> file, related to the ParseRealText function in\n> modules/demux/subtitle.c.\n\nCould you split that up into two CVE ids? I ask because the \nrealtext issue doesn\'t affect versions < 0.9.x which is the \ncase for the version we have in Debian so I can not use a \nfixed version + not-affected for one CVE id in our security \ntracker.\n\nKind regards\nNico\n-- \nNico Golde - http://www.ngolde.de - nion@...ber.ccc.de - GPG: 0x73647CFF\nFor security reasons, all text in this mail is double-rot13 encrypted.\n\nContent of type \"application/pgp-signature\" skipped"}]'
 
-print(new_IBM)
+IBM_test_description=list(eval(IBM_test)[0].values())[0]['description']
+oval_test_description=list(eval(oval_test)[0].values())[0]
+gentoo_test_impact=list(eval(gentoo_test)[0].values())[0]['impact']
+gentoo_test_description=list(eval(gentoo_test)[0].values())[0]['description']
+
 import spacy
 
 nlp = spacy.load('en_core_web_md')
-nlp.max_length = 1500000
+# nlp.max_length = 1500000
 
 def get_sent(docs):
+    '''
+    该函数用于将文本段中的句子提取出来，主要针对exploit-db、openwall这一类的站点
+    :param docs:
+    :return:
+    '''
     counts=docs.count('\n\n')
     detail=docs.split('\n\n',counts)           #按“”
     connect_sent=[]
@@ -76,10 +82,7 @@ def get_sent(docs):
         connect_sent.append(temp_sent)
     return connect_sent
 
-print(get_sent(new_openwall[50]))
-
-assert 0
-
+#暂时不用下面这个函数
 def split_by_spacy(txt):
     '''
 
@@ -91,11 +94,6 @@ def split_by_spacy(txt):
     for sent in doc.sents:
         value.append(str(sent))
     return value
-
-# 分站点进行处理，先看exploit_db
-# step1:使用spacy分成文本块
-
-
 
 # step2：将包含在属性中的值提取出来，并且从该文本块中删除出来【是否可以构建一个大约200维的属性表格】
 
