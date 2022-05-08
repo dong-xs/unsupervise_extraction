@@ -11,6 +11,9 @@
             https://oval.cisecurity.org                 #10286
             http://security.gentoo.org                  #10048
             http://securityreason.com  <待定>           #6401,该站点也是极其不规则，也包括代码等内容
+            http://packetstormsecurity.com   <待定>     #6111，该站点是蒲觉非推荐的一个站点，但是该站点内容也是太乱了
+
+
 
             APU提供的站点虽然从NVD得到的数据较少，但是MSF/modules下的每个站点都可以与CVE编号进行链接，
             目标站点为：https://github.com/rapid7/metasploit-framework/tree/master/modules/exploits

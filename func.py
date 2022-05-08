@@ -74,9 +74,39 @@ domain_list=[
 # print(wn.synsets('car'))
 
 
-import spacy
-nlp=spacy.load('en_core_web_md')
+# import spacy
+# nlp=spacy.load('en_core_web_md')
+#
+# sent='Stack-based buffer overflow in VideoLAN VLC media player 0.9.x before 0.9.6 might allow user-assisted attackers to execute arbitrary code via an an invalid RealText (rt) subtitle file related to the ParseRealText function in modules/demux/subtitle.c.'
+# from spacy import displacy
+# displacy.render(nlp(sent),style='dep',jupyter=True,options={'distance':90})
 
-sent='Stack-based buffer overflow in VideoLAN VLC media player 0.9.x before 0.9.6 might allow user-assisted attackers to execute arbitrary code via an an invalid RealText (rt) subtitle file related to the ParseRealText function in modules/demux/subtitle.c.'
-from spacy import displacy
-displacy.render(nlp(sent),style='dep',jupyter=True,options={'distance':90})
+
+# import os
+# import shutil    #用于文件移动的第三方库
+#
+# determination= r'./data/exploits_new/'
+# if not os.path.exists(determination):
+#     os.makedirs(determination)
+#
+# def file_move(path_n):
+#
+#
+# path = r'./data/exploits'
+# folders=os.listdir(path)    #一级目录
+# for folder in folders:
+#     dir=path+'/'+str(folder)
+#     files=os.listdir(dir)
+#     for file in files:
+#         if file.endswith('.rb'):
+#             source=str(dir)+"/"+str(file)
+#             deter=determination+str(file)
+#             shutil.copy(source,deter)
+#         else:
+#             new_dir=dir+'/'+str(file)
+
+# with open('./data/exploits/aix/rpc_cmsd_opcode21.rb',encoding='utf-8') as f:
+#     content=f.readlines()
+#     f.close()
+#
+# print(content)

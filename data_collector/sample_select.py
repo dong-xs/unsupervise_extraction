@@ -11,13 +11,17 @@ third_link=content['hyperlink'].values.tolist()    #转换为了一个list
 
 domain_list=[                       #此次拟筛选的5个第三方站点
     'exchange.xforce.ibmcloud.com',
-    # 'www.exploit-db.com',
+    # 'www.exploit-db.com',       #可以暂时不考虑这个站点了，太复杂了
     'www.openwall.com',
     'oval.cisecurity.org',
-    'security.gentoo.org'
+    'security.gentoo.org',
     # 'lists.opensuse.org',
     # 'securityreason.com',
     # 'github.com'
+    'https://github.com/rapid7/metasploit-framework/tree/master/modules/exploits'
+    #最后这个站点有些特殊，当前总共只有2200个披露的漏洞信息，但是该站点是大家都可以提交的，属于一个公共的漏洞站点
+
+    #经过长期的调研，目前就选择这五个站点作为数据来源
 ]
 
 cveid=content['cveid'].tolist()
